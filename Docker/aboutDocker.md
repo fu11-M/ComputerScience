@@ -21,3 +21,64 @@ Docker의 핵심 개념 중 하나는 **이미지(Image)**입니다. Docker 이�
 속도: 이미지는 한 번 빌드하면 캐시로 저장되기 때문에, 동일한 이미지로 컨테이너를 실행할 때 속도가 매우 빠릅니다. 이미지는 효율적으로 저장되고, 컨테이너를 실행하는 데 필요한 시간도 단축됩니다.
 
 재현성: 특정 애플리케이션을 특정 버전으로 재현할 수 있어, 문제 발생 시 재현 가능성을 높입니다. 즉, 이미지를 통해 환경을 정확히 복원할 수 있습니다.
+
+
+### docker 명령어
+
+docker --version
+설명: 도커의 버전을 확인합니다.
+사용 예시: docker --version
+2. docker pull <이미지 이름>
+설명: 도커 레지스트리(Docker Hub 등)에서 이미지를 다운로드합니다.
+사용 예시: docker pull ubuntu
+3. docker build -t <이미지 이름> <디렉토리>
+설명: 도커파일(Dockerfile)을 기반으로 이미지를 빌드합니다.
+사용 예시: docker build -t myimage .
+4. docker images
+설명: 현재 로컬에 존재하는 도커 이미지를 목록으로 출력합니다.
+사용 예시: docker images
+5. docker rmi <이미지 이름>
+설명: 지정된 이미지를 로컬 시스템에서 삭제합니다.
+사용 예시: docker rmi myimage
+6. docker ps
+설명: 현재 실행 중인 도커 컨테이너를 목록으로 출력합니다.
+사용 예시: docker ps
+7. docker ps -a
+설명: 실행 중인 컨테이너뿐만 아니라, 종료된 컨테이너도 포함하여 모든 컨테이너를 출력합니다.
+사용 예시: docker ps -a
+8. docker run <옵션> <이미지>
+설명: 새로운 컨테이너를 실행합니다. -d 옵션을 사용하면 백그라운드로 실행됩니다.
+사용 예시:
+docker run -d ubuntu (백그라운드에서 실행)
+docker run -it ubuntu bash (인터랙티브 모드로 실행)
+9. docker exec -it <컨테이너 ID> <명령>
+설명: 이미 실행 중인 컨테이너 내에서 명령어를 실행합니다. -it 옵션을 사용하여 터미널을 연결할 수 있습니다.
+사용 예시: docker exec -it <컨테이너 ID> bash
+10. docker stop <컨테이너 ID>
+설명: 실행 중인 컨테이너를 종료합니다.
+사용 예시: docker stop <컨테이너 ID>
+11. docker start <컨테이너 ID>
+설명: 중지된 컨테이너를 다시 시작합니다.
+사용 예시: docker start <컨테이너 ID>
+12. docker restart <컨테이너 ID>
+설명: 컨테이너를 재시작합니다.
+사용 예시: docker restart <컨테이너 ID>
+13. docker rm <컨테이너 ID>
+설명: 중지된 컨테이너를 삭제합니다.
+사용 예시: docker rm <컨테이너 ID>
+14. docker logs <컨테이너 ID>
+설명: 컨테이너의 로그를 출력합니다.
+사용 예시: docker logs <컨테이너 ID>
+15. docker network ls
+설명: 도커 네트워크를 목록으로 출력합니다.
+사용 예시: docker network ls
+16. docker volume ls
+설명: 도커 볼륨을 목록으로 출력합니다.
+사용 예시: docker volume ls
+17. docker-compose
+설명: 여러 개의 도커 컨테이너를 관리할 수 있도록 해주는 도구입니다. docker-compose.yml 파일을 작성하여 여러 서비스를 정의하고 실행할 수 있습니다.
+
+예시 명령어:
+
+docker-compose up: 정의된 서비스들을 실행합니다.
+docker-compose down: 실행 중인 서비스들을 중지하고 네트워크를 제거합니다.
